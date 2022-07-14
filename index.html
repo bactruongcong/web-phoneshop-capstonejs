@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAwsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>Quản lý sản phẩm</title>
+    <style>
+        .wrap-loader{
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+        }
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            }
+
+            @keyframes spin {
+            0% { transform: rotate(0deg)}
+            100% { transform: rotate(360deg)}
+            }
+    </style>
+</head>
+<body>
+ 
+    <!-- Loading -->
+    <div id="loader" class="wrap-loader">
+        <div class="loader"></div>
+    </div>
+    <!-- Start Header -->
+    <header class="p-4">
+        <nav>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <a class="" href="#">
+                            <img src="./assets/image/logo.jpg" alt="logo"/>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <form class="form-search">
+                              <input class="input-search" type="search" placeholder="Nhập từ khóa" aria-label="Search">
+                              <button class="btn-search" type="button">Tìm kiếm</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <!-- Modal -->
+                        <button type="button" class="btn btn-primary cart-shopping" data-bs-toggle="modal" data-bs-target="#cartShopingmodal" data-bs-whatever="@mdo">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span id="spanCountShoping">0</span>
+                        </button>
+                        <div class="modal fade" id="cartShopingmodal" tabindex="-1" aria-labelledby="cartShopingmodalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="cartShopingmodal
+                                Label">Giỏ hàng</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h4 id="totalCart">Tổng cộng: 200,000</h4>
+                                <table class="table text-center">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">STT</th>
+                                        <th scope="col">Tên sản phẩm</th>
+                                        <th scope="col">Giá tiền</th>
+                                        <th scope="col">Số lượng</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="tbodyCartShoping">
+                                      <tr>
+                                        <th scope="row">1</th>
+                                        <td>iPhone 13 Pro Max 128GB
+                                        </td>
+                                        <td>129,780,000
+                                        </td>
+                                        <td>
+                                        <input type="text" class="form-control" placeholder="Số lượng">
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                   
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-primary">Thanh toán</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- End Modal Card -->
+                        <button type="button" class="btn btn-primary cart-heart" data-bs-toggle="modal" data-bs-target="#cartShopingmodal" data-bs-whatever="@mdo">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
+    <section class="products">
+        <div class="container">
+           <div class="header d-flex align-items-center justify-content-between">
+            <h2>Phone Products</h2>
+            <div class="header-line flex-grow-1"></div>
+            <div class="header-select">
+                <label>Tìm kiếm theo thương hiệu</label>
+                <select id="type-select">
+                    <option value="">Chọn nhãn hiệu</option>
+                    <option value="SamSung">SamSung</option>
+                    <option value="Apple">Apple</option>
+                </select>
+            </div>
+           </div>
+           <div class="product-list">
+                <div id="products-list" class="row">
+                    <!-- <div class="col-3">
+                        <div class="item">
+                            <div class="item-inner">
+                                <div class="item-image">
+                                    <img src="./assets/image/pd1.jpg" alt=""/>
+                                    <div class="overplay-order">
+                                        <div class="icon-order">
+                                            <a class="cart-shopping" href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                                            <a class="cart-heart" href=""><i class="fa-solid fa-heart"></i></a>
+                                            <a class="btn-info">
+                                                <i class="fa-solid fa-info"></i>
+                                                <div class="overplay-detail">
+                                                    <h4 class="text-center mt-3">Thông tin sản phẩm</h4>
+                                                    <ul id="detailProduct">
+                                                        <li><b>Màn hình:</b> <span id="spanScreen">OLED6.7"Super Retina XDR</span></li>
+                                                        <li><b>Camera sau:</b> <span id="spanBCamera">3 camera 12 MP</span>	</li>
+                                                        <li><b>Camera trước:</b> <span id="spanFCamera">12 MP</span></li>
+                                                        <li><b>Chi tiết:</b> <span id="spanDes">Khung thép không gỉ & Mặt lưng kính cường lực</span></li>
+                                                        <li><b>Hãng:</b> <span id="spanType">Apple</span></li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="item-info">
+                                    <span id="txtName" class="item-name">Tên sản phẩm</span>
+                                    <div class="product-price-and-shipping">
+                                        <span id="txtPrice" class="item-price">Giá: 142,00</span>                                                                                                                                                                                      
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+           </div>
+        </div>
+    </section>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Axios JS -->
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+    <script src="./assets/js/models/productscartshoping.js"></script>
+    <script src="./assets/js/validate.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>

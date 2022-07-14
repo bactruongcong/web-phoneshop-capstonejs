@@ -1,0 +1,168 @@
+header{
+    background-color: #fff;
+    .form-search{
+        position: relative;
+        border: none;
+        .input-search,.btn-search{
+            position: absolute;
+            top: 0;
+        
+        }
+        .input-search{
+            width: 100%;
+            left: 0;
+            outline: none;
+            border: 1px solid #317ece;
+            border-radius: 6px;
+            height: 50px;
+            padding-left: 20px;
+        }
+        .btn-search{
+            right: 0;
+            border:none;
+            background-color: rgb(20, 110, 190);
+            width: 20%;
+            height: 50px;
+            border-radius: 0px 6px 6px 0px;
+            color: white;
+    
+        }
+        
+    }
+    .cart-shopping,.cart-heart{
+         font-size: 30px;
+        
+     }
+     .cart-shopping{
+        position: relative;
+        font-size: 15px;
+        span{
+            background-color: red;
+            position: absolute;
+            top: -10px;
+            right: 0px;
+            color: #fff;
+            border-radius: 100%;
+            display: block;
+            height: 20px;
+            width: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+     }
+     .cart-heart{
+        font-size: 15px;
+        margin-left: 10px;
+     }
+}
+.products{
+    .header-line{
+        background-color: #317ece;
+        height: 1px;
+        margin: 0 20px;
+    }
+    #type-select{
+        min-width: 250px;
+    }
+    .product-list{
+        .item{
+            
+            &:hover .item-inner .overplay-order{
+                opacity: 1;
+            }
+        }
+        .item-inner{  
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: 0.5s all;
+            &:hover{
+                 border-color: blanchedalmond;
+            }
+            .item-image{
+                position: relative;
+                overflow: hidden;
+              
+                img{
+                    width: 100%;
+                }
+                .overplay-order{
+                    opacity: 0;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgba(102, 102, 102, 0.345);
+                    transition: 0.5s all;
+                    .cart-shopping,.cart-heart{
+                        display: inline-block;
+                        background-color: #fff;
+                        text-align: center;
+                        line-height: 30px;
+                        width: 30px;
+                        height: 30px;
+                        color: #666;
+                        border-radius: 50%;
+                        transition: 0.5s all;
+                        &:hover{
+                            background-color: #317ece;
+                            color: white;
+                        }
+                    }
+                    .overplay-detail{
+                        background-color: rgba(255, 255, 255, 0.932);
+                        position: absolute;
+                        top: 0;
+                        left: -200%;
+                        overflow-y: scroll;
+                        bottom: 0;
+                        transition: 0.5s all;
+                        text-align: left;
+                    }
+                    .btn-info{
+                        display: inline-block;
+                        background-color: white;
+                        border: none;
+                        text-align: center;
+                        color: #666;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        border-radius: 50%;
+                        transition: 0.5s all;
+                        &:hover {
+                            background-color: #317ece;
+                            color: white;
+                            .overplay-detail{
+                                color:#666;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+               
+            }
+            
+           .item-info{
+            text-align: center;
+            .item-name{
+                font-weight: 400;
+                font-size: 20px;
+                color: #333;
+            }
+            .item-price{
+                color: #317ece;
+                font-size: 16px;
+                font-weight: 700;
+            }
+           } 
+        }
+    }
+}

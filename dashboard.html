@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Quản lý sản phẩm</title>
+    <style>
+        .wrap-loader{
+            position: fixed;
+            z-index: 9999;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+        }
+        .loader {
+           
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-right: 16px solid green;
+            border-bottom: 16px solid red;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            }
+
+            @keyframes spin {
+            0% { transform: rotate(0deg)}
+            100% { transform: rotate(360deg)}
+            }
+    </style>
+</head>
+<body>
+ 
+    <!-- Loading -->
+    <div id="loader" class="wrap-loader">
+        <div class="loader"></div>
+    </div>
+    <!-- Start Header -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Dashboard</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Trang người dùng</a>
+                  </li>
+                </ul>
+                <form class="d-flex p-2">
+                  <input class="form-control me-2" type="search" placeholder="Nhập từ khóa" aria-label="Search">
+                  <button class="btn btn-outline-success" type="button">Tìm kiếm</button>
+                </form>
+              </div>
+            </div>
+        </nav>
+    </div>
+    <!-- End Header -->
+    <!-- Start Admin -->
+    <div class="container">
+        <h2 class="text-center mt-2">Quản lý sản phẩm/Khách hàng</h2>
+       <!-- Start Modal -->
+       <div class="container ">
+           <div class="text-center">
+            <button type="button" id="btn-modal" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Thêm sản phẩm</button>
+           <!-- Modal susscess -->
+            <!-- Button trigger modal -->
+            <button type="button" id="btn-complete" class="btn btn-primary" style="visibility: hidden;" data-bs-toggle="modal" data-bs-target="#modal-susscess">
+                OK
+                </button>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-susscess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="modal-body-completed" class="modal-body">
+                    
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm</h5>
+                    <button type="button" id="btn-close" class="btn-close" onclick="closeModal()" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="mb-1">
+                        <label for="recipient-name" class="col-form-label">Tên sản phẩm</label>
+                        <input id="txtName" type="text" class="form-control" id="recipient-name">
+                        <span id="spanName" style="color: red"></span>
+                    </div>
+                    <div class="mb-1">
+                        <label for="recipient-name" class="col-form-label">Giá</label>
+                        <input id="txtPrice" type="text" class="form-control" id="recipient-name">
+                        <span id="spanPrice" style="color: red"></span>
+                      </div>
+                    <div class="mb-1">
+                        <label for="recipient-name" class="col-form-label">Màn hình</label>
+                        <input id="txtScreen" type="text" class="form-control" id="recipient-name">
+                        <span id="spanScreen" style="color: red"></span>
+                      </div>
+                    <div class="mb-1">
+                        <label for="recipient-name" class="col-form-label">Camera sau</label>
+                        <input id="txtBlackCamera" type="text" class="form-control" id="recipient-name">
+                        <span id="spanBCamera" style="color: red"></span>
+                      </div>
+                    <div class="mb-1">
+                        <label for="recipient-name" class="col-form-label">Camera trước</label>
+                        <input id="txtFrontCamera" type="text" class="form-control" id="recipient-name">
+                        <span id="spanFCamera" style="color: red"></span>
+                      </div>
+                    <div class="mb-1">
+                        <label for="recipient-name" class="col-form-label">Hình ảnh</label>
+                        <input id="txtImg" type="text" class="form-control" id="recipient-name">
+                        <span id="spanImg" style="color: red"></span>
+                      </div>
+                    <div class="mb-1">
+                        <label for="recipient-name" class="col-form-label">Chi tiết</label>
+                        <textarea id="txtDes" class="form-control" id="message-text"></textarea>
+                        <span id="spanDes" style="color: red"></span>
+                      </div>
+                    <div class="mb-1">
+                        <label for="recipient-name" class="col-form-label">Loại</label>
+                        <!-- <input id="txtType" type="text" class="form-control" id="recipient-name"> -->
+                        <select class="form-select" name="txtType" id="txtType">
+                            <option value="">Chọn nhãn hiệu</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Xiaomi">Xiaomi</option>
+                            <option value="Nokia">Nokia</option>
+                          </select>
+                          <span id="spanType" style="color: red"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btn-addprouct" class="btn btn-primary" onclick="addProduct()">Thêm sản phẩm</button>
+                        <button type="button" id="btn-update" class="btn btn-primary" style="display: none" onclick="updateProduct(event)">Lưu thay đổi</button>
+                        <button type="reset" id="btn-reset" class="btn btn-primary">Nhập lại</button>
+                        <button type="button" id="btn-close-modal" class="btn btn-secondary" onclick="closeModal()" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
+       </div>
+       <!-- End Modal -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Danh sách sản phẩm</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" type="button" role="tab" aria-controls="order" aria-selected="false">Đơn đặt hàng</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Danh sách khách hàng</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="table-responsive-xxl">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Tên sản phẩm</th>
+                            <th scope="col">Giá</th>
+                            <th scope="col">Màn hình</th>
+                            <th scope="col">Camera sau</th>
+                            <th scope="col">Camera trước</th>
+                            <th scope="col">Hình ảnh</th>
+                            <th scope="col">Chi tiết</th>
+                            <th scope="col">Loại</th>
+                            <th scope="col" class="text-center bg-primary">Action For Admin</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tbListProduct">
+                    
+                    
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">Đang cập nhật...</div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Đang cập nhật...</div>
+          </div>
+      </div> 
+    <!-- End Admin -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Axios JS -->
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+    <script src="./assets/js/models/products.js"></script>
+    <script src="./assets/js/validate.js"></script>
+    <script src="./assets/js/controller.js"></script>
+</body>
+</html>
