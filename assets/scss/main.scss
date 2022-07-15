@@ -115,12 +115,17 @@ header{
                             background-color: #317ece;
                             color: white;
                         }
+
+                    }
+                    .cart-shopping{
+                        border: none;
                     }
                     .overplay-detail{
                         background-color: rgba(255, 255, 255, 0.932);
                         position: absolute;
                         top: 0;
                         left: -200%;
+                        width: 100%;
                         overflow-y: scroll;
                         bottom: 0;
                         transition: 0.5s all;
@@ -164,5 +169,24 @@ header{
             }
            } 
         }
+    }
+}
+.btn-cart-shop{
+    div{
+        padding: 0;
+        margin: 0;
+       input,button{
+        text-align: center;
+        padding: 0;
+       }
+       button{
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        vertical-align: middle;
+        line-height: 20px;
+       }
+       
+
     }
 }

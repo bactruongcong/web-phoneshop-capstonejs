@@ -36,6 +36,28 @@
     </style>
 </head>
 <body>
+    <!-- Modal susscess -->
+            <!-- Button trigger modal -->
+            <button type="button" id="btn-complete" class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#modal-susscess">
+                OK
+                </button>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-susscess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Đơn hàng đã thanh toán thành công!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="modal-body-completed" class="modal-body">
+                    
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+                </div>
+            </div>
  
     <!-- Loading -->
     <div id="loader" class="wrap-loader">
@@ -47,15 +69,16 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-3">
-                        <a class="" href="#">
+                        <a class="" href="index.html">
                             <img src="./assets/image/logo.jpg" alt="logo"/>
                         </a>
                     </div>
                     <div class="col-6">
                         <div>
+                           
                             <form class="form-search">
-                              <input class="input-search" type="search" placeholder="Nhập từ khóa" aria-label="Search">
-                              <button class="btn-search" type="button">Tìm kiếm</button>
+                              <input id="txtSearch2" class="input-search" type="text" placeholder="Nhập từ khóa" aria-label="Search">
+                              <button class="btn-search" onclick="searchProduct()" type="button">Tìm kiếm</button>
                             </form>
                         </div>
                     </div>
@@ -101,8 +124,9 @@
                                 </table>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                <button type="button" class="btn btn-primary">Thanh toán</button>
+                                <button id="btn-close-cart" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button id="btnPay" type="button" class="btn btn-primary" onclick="payCart()">Thanh toán</button>
+                            
                             </div>
                             </div>
                         </div>
@@ -128,10 +152,8 @@
             <div class="header-line flex-grow-1"></div>
             <div class="header-select">
                 <label>Tìm kiếm theo thương hiệu</label>
-                <select id="type-select">
-                    <option value="">Chọn nhãn hiệu</option>
-                    <option value="SamSung">SamSung</option>
-                    <option value="Apple">Apple</option>
+                <select onchange="showProductType()"id="type-select">
+                    
                 </select>
             </div>
            </div>

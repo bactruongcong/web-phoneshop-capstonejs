@@ -127,11 +127,16 @@ header .cart-heart {
   color: white;
 }
 
+.products .product-list .item-inner .item-image .overplay-order .cart-shopping {
+  border: none;
+}
+
 .products .product-list .item-inner .item-image .overplay-order .overplay-detail {
   background-color: rgba(255, 255, 255, 0.932);
   position: absolute;
   top: 0;
   left: -200%;
+  width: 100%;
   overflow-y: scroll;
   bottom: 0;
   transition: 0.5s all;
@@ -175,5 +180,23 @@ header .cart-heart {
   color: #317ece;
   font-size: 16px;
   font-weight: 700;
+}
+
+.btn-cart-shop div {
+  padding: 0;
+  margin: 0;
+}
+
+.btn-cart-shop div input, .btn-cart-shop div button {
+  text-align: center;
+  padding: 0;
+}
+
+.btn-cart-shop div button {
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  vertical-align: middle;
+  line-height: 20px;
 }
 /*# sourceMappingURL=main.css.map */
