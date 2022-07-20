@@ -171,6 +171,7 @@ header .cart-heart {
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 12px;
 }
 
 .products .product-list .item-inner .item-info .item-name {
