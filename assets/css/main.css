@@ -138,6 +138,7 @@ header .cart-heart {
   left: -200%;
   width: 100%;
   overflow-y: scroll;
+  word-break: break-all;
   bottom: 0;
   transition: 0.5s all;
   text-align: left;
@@ -168,6 +169,8 @@ header .cart-heart {
 
 .products .product-list .item-inner .item-info {
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .products .product-list .item-inner .item-info .item-name {
@@ -180,6 +183,10 @@ header .cart-heart {
   color: #317ece;
   font-size: 16px;
   font-weight: 700;
+}
+
+#tbodyCartShoping .td-Name {
+  word-break: break-all;
 }
 
 .btn-cart-shop div {

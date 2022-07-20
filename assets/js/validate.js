@@ -78,7 +78,7 @@ function Validate(){
         return true;
     }
     document.getElementById(spanId).innerHTML = "*Giá trị nhập vào phải là số 0 - 9";
-    return false
+    return false;
    }
    this.checkMaxNumber = function(inputId,spanId){
     var txtNumber = document.getElementById(inputId).value;
@@ -87,6 +87,15 @@ function Validate(){
         return false;
     }
     document.getElementById(spanId).innerHTML = "";
-    return true
+    return true;
+   }
+   this.checkMaxLength = function(inputId,spanId){
+    var txtNumber = document.getElementById(inputId).value;
+    if(txtNumber.length > 200){
+        document.getElementById(spanId).innerHTML = "*Tối đa 200 ký tự";
+        return false;
+    }
+    document.getElementById(spanId).innerHTML = "";
+    return true;
    }
 }

@@ -24,20 +24,48 @@ function renderProduct(data){
     for(var i = 0; i < data.length ; i++){
         result +=  `
                 <tr>
-                    <th scope="row">${i+1}</th>
-                    <td>${data[i].name}</td>
-                    <td>${changePrice(data[i].price)}</td>
-                    <td>${data[i].screen}</td>
-                    <td>${data[i].blackCamera}</td>
-                    <td>${data[i].frontCamera}</td>
+                    <td scope="row">${i+1}</td>
                     <td>
-                        <img src="${data[i].img}" width="100px"/>
+                    <div class="td-break1">
+                    ${data[i].name}
+                    </div>
                     </td>
-                    <td>${data[i].desc}</td>
-                    <td>${data[i].type}</td>
-                    <td class="d-flex">
+                    <td>${changePrice(data[i].price)}</td>
+                    <td>
+                    <div class="td-break1">
+                    ${data[i].screen}
+                    </div>
+                    </td>
+                    <td>
+                        <div class="td-break1">
+                        ${data[i].blackCamera}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="td-break1">
+                         ${data[i].frontCamera}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="td-break1">
+                        <img src="${data[i].img}" width="100px" alt="${data[i].img}"/>
+                        </div>
+                    </td>
+                    <td>
+                    <div class="td-break1">
+                    ${data[i].desc}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="td-break1">
+                    ${data[i].type}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="d-flex">
                     <button type="button" class="btn btn-info me-2" onclick="getProduct(${data[i].id})">Cập nhật</button>
                     <button type="button" class="btn btn-danger" onclick="deleteProduct(${data[i].id})">Xóa</button>
+                    </div>
                     </td>
                  </tr>
       `
@@ -57,14 +85,14 @@ function addProduct(){
     var type = domId("txtType").value.trim();
     var valid = new Validate();
     var isValid = true;
-    isValid &= valid.checkRequile("txtName");
-    isValid &= valid.checkRequile("txtPrice") && valid.checkNumber("txtPrice","spanPrice") && valid.checkMaxNumber("txtPrice","spanPrice");
-    isValid &= valid.checkRequile("txtScreen");
-    isValid &= valid.checkRequile("txtBlackCamera");
-    isValid &= valid.checkRequile("txtFrontCamera");
+    isValid &= valid.checkRequile("txtName") && valid.checkMaxLength("txtName","spanName");
+    isValid &= valid.checkRequile("txtPrice") && valid.checkNumber("txtPrice","spanPrice")&& valid.checkMaxNumber("txtPrice","spanPrice");
+    isValid &= valid.checkRequile("txtScreen") && valid.checkMaxLength("txtScreen","spanScreen");
+    isValid &= valid.checkRequile("txtBlackCamera") && valid.checkMaxLength("txtBlackCamera","spanBCamera");
+    isValid &= valid.checkRequile("txtFrontCamera") && valid.checkMaxLength("txtFrontCamera","spanFCamera");
     isValid &= valid.checkRequile("txtImg");
-    isValid &= valid.checkRequile("txtDes");
-    isValid &= valid.checkRequile("txtType");
+    isValid &= valid.checkRequile("txtDes") && valid.checkMaxLength("txtDes","spanDes");
+    isValid &= valid.checkRequile("txtType") && valid.checkMaxLength("txtType","spanType");
     if(isValid === 0) return;
     domId("loader").style.display = "block";
     var product = new Products(
@@ -142,14 +170,14 @@ function updateProduct(event){
     var type = domId("txtType").value.trim();
     var valid = new Validate();
     var isValid = true;
-    isValid &= valid.checkRequile("txtName");
+    isValid &= valid.checkRequile("txtName") && valid.checkMaxLength("txtName","spanName");
     isValid &= valid.checkRequile("txtPrice") && valid.checkNumber("txtPrice","spanPrice")&& valid.checkMaxNumber("txtPrice","spanPrice");
-    isValid &= valid.checkRequile("txtScreen");
-    isValid &= valid.checkRequile("txtBlackCamera");
-    isValid &= valid.checkRequile("txtFrontCamera");
+    isValid &= valid.checkRequile("txtScreen") && valid.checkMaxLength("txtScreen","spanScreen");
+    isValid &= valid.checkRequile("txtBlackCamera") && valid.checkMaxLength("txtBlackCamera","spanBCamera");
+    isValid &= valid.checkRequile("txtFrontCamera") && valid.checkMaxLength("txtFrontCamera","spanFCamera");
     isValid &= valid.checkRequile("txtImg");
-    isValid &= valid.checkRequile("txtDes");
-    isValid &= valid.checkRequile("txtType");
+    isValid &= valid.checkRequile("txtDes") && valid.checkMaxLength("txtDes","spanDes");
+    isValid &= valid.checkRequile("txtType") && valid.checkMaxLength("txtType","spanType");
     if(isValid === 0) return;
     domId("loader").style.display = "block";
     var product = new Products(

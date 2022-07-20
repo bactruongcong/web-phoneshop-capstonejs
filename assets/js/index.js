@@ -256,32 +256,30 @@ function renderCartShoping(data) {
                 result += `
                         <tr>
                         <th scope="row">${i + 1}</th>
-                        <td>${data[j].name}
-                        
+                        <td>
+                        <div class="td-Name">${data[j].name}</div>
                         </td>
                         <td>${changePrice(data[j].price)}
                         </td>
                         <td>
                         <div class="row btn-cart-shop">
-                        <div class="col-6">
+                        <div class="col-2">
+                        <button type="button" class="btn btn-primary " onclick="upDownVolume('${data[j].id}')">+</button>
+                        </div>
+                        <div class="col-3 ms-2">
                         <input id="txtVolume${data[j].id}" value="${cart.volume}" style="height: 30px" disabled="true" type="text" class="form-control" oninput="addCartShopingVolume('${data[j].id}')">
                         </div>
-                        <div class="col-2">
-                        <button type="button" class="btn btn-primary" onclick="upDownVolume('${data[j].id}')">+</button>
+                        <div class="col-2 ms-2">
+                        <button type="button" class="btn btn-secondary " onclick="upDownVolume('${data[j].id}','down')">-</button>
                         </div>
-                        <div class="col-2">
-                        <button type="button" class="btn btn-secondary" onclick="upDownVolume('${data[j].id}','down')">-</button>
-                        </div>
-                        <div class="col-2">
-                        <button type="button" class="btn btn-danger btnDelete-custom" onclick="removeCartItem('${data[j].id}')">X</button>
+                        <div class="col-2 ms-2">
+                        <button type="button" class="btn btn-danger btnDelete-custom " onclick="removeCartItem('${data[j].id}')">X</button>
                         </div>
                         </div>
                         <span>Thành tiền: ${changePrice(total + "")}</span></br>
                         <span id="spanerr${data[j].id}" style="color:red"></span>
                         </td>
-                        <td>
-                      
-                        </td>
+
                     </tr>
                 `
             }
