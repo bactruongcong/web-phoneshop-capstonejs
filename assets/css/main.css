@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 header {
   background-color: #fff;
 }
@@ -5,11 +9,6 @@ header {
 header .form-search {
   position: relative;
   border: none;
-}
-
-header .form-search .input-search, header .form-search .btn-search {
-  position: absolute;
-  top: 0;
 }
 
 header .form-search .input-search {
@@ -23,6 +22,7 @@ header .form-search .input-search {
 }
 
 header .form-search .btn-search {
+  position: absolute;
   right: 0;
   border: none;
   background-color: #146ebe;
@@ -44,8 +44,8 @@ header .cart-shopping {
 header .cart-shopping span {
   background-color: red;
   position: absolute;
-  top: -10px;
-  right: 0px;
+  top: -12px;
+  right: -5px;
   color: #fff;
   border-radius: 100%;
   display: block;
@@ -198,5 +198,118 @@ header .cart-heart {
   font-size: 10px;
   vertical-align: middle;
   line-height: 20px;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1280px) {
+  header .cart-heart, header .cart-shopping {
+    font-size: 15px;
+  }
+  header .form-search .input-search, header .form-search .btn-search {
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 991.8px) and (min-width: 768px) {
+  header .cart-heart, header .cart-shopping {
+    font-size: 15px;
+    margin-left: 5px;
+    padding: 5px;
+    width: 40px;
+  }
+  header .form-search .input-search, header .form-search .btn-search {
+    height: 30px;
+    font-size: 10px;
+  }
+  header .btn-admin {
+    display: none;
+  }
+  header #spanCountShoping {
+    font-size: 10px;
+    right: -7px;
+    top: -15px;
+  }
+}
+
+@media screen and (max-width: 767.8px) and (min-width: 576px) {
+  header .group-btn-shop {
+    position: fixed;
+    width: 100px;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  header .cart-heart, header .cart-shopping {
+    width: 50px;
+    height: 40px;
+    margin-top: 5px;
+    font-size: 16px;
+    margin-left: 0;
+    padding: 5px;
+  }
+  header .form-search {
+    margin-top: 1rem;
+  }
+  header .btn-admin {
+    overflow: hidden;
+    font-size: 16px;
+    padding: 5px;
+    display: none;
+  }
+  header #spanCountShoping {
+    font-size: 15px;
+    right: -7px;
+    top: -10px;
+  }
+  .products .header {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 575.8px) {
+  header .group-btn-shop {
+    position: fixed;
+    width: 60px;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  header .cart-heart, header .cart-shopping {
+    width: 40px;
+    height: 40px;
+    margin-top: 3px;
+    font-size: 14px;
+    margin-left: 0;
+    padding: 5px;
+  }
+  header .form-search {
+    margin-top: 1rem;
+  }
+  header .form-search .input-search, header .form-search .btn-search {
+    height: 30px;
+    font-size: 10px;
+  }
+  header .btn-admin {
+    overflow: hidden;
+    font-size: 16px;
+    padding: 5px;
+    display: none;
+  }
+  header #spanCountShoping {
+    font-size: 15px;
+    right: -7px;
+    top: -10px;
+  }
+  .products .header {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
 }
 /*# sourceMappingURL=main.css.map */

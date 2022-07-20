@@ -67,22 +67,22 @@
     <header class="p-4">
         <nav>
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-3">
+                <div class="row justify-content-center align-items-center text-center">
+                    <div class="col-lg-3 col-md-3 col-sm-12">
                         <a class="" href="index.html">
                             <img src="./assets/image/logo.jpg" alt="logo"/>
                         </a>
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
                         <div>
                            
                             <form class="form-search">
-                              <input id="txtSearch2" class="input-search" type="text" placeholder="Nhập từ khóa" aria-label="Search">
-                              <button class="btn-search" onclick="searchProduct()" type="button">Tìm kiếm</button>
+                              <input oninput="searchProduct()" id="txtSearch" class="input-search" type="text">
+                              <button class="btn-search"  type="button">Tìm kiếm</button>
                             </form>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 group-btn-shop">
                        
                         <!-- Modal -->
                         <button type="button" class="btn btn-primary cart-shopping" data-bs-toggle="modal" data-bs-target="#cartShopingmodal" data-bs-whatever="@mdo">
@@ -109,7 +109,7 @@
                                       </tr>
                                     </thead>
                                     <tbody id="tbodyCartShoping">
-                                      <tr>
+                                      <!-- <tr>
                                         <th scope="row">1</th>
                                         <td>iPhone 13 Pro Max 128GB
                                         </td>
@@ -118,7 +118,7 @@
                                         <td>
                                         <input type="text" class="form-control" placeholder="Số lượng">
                                         </td>
-                                      </tr>
+                                      </tr> -->
                                     </tbody>
                                    
                                 </table>
@@ -135,9 +135,8 @@
                         <button type="button" class="btn btn-primary cart-heart" >
                             <i class="fa-solid fa-heart"></i>
                         </button>
-                        <button type="button" class="btn btn-primary cart-heart" >
-                            <i class="fa-solid fa-folder-gear"></i>
-                            <a href="dashboard.html"><span style="color: white;">Admin Page here</span></a>
+                        <button type="button" class="btn btn-primary cart-heart btn-admin" >
+                            <a href="dashboard.html"><span style="color: white;">Admin</span></a>
                         </button>
                     </div>
                 </div>
