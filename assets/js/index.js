@@ -20,8 +20,10 @@ function getListProduct(valueSelect) {
             domId("loader").style.display = "none";
             if (cardProductList.length <= 0) {
                 domId("btnPay").style.display = "none";
+                domId("btnClearCart").style.display = "none";
             } else {
                 domId("btnPay").style.display = "block";
+                domId("btnClearCart").style.display = "block";
             }
 
         })
@@ -30,7 +32,15 @@ function getListProduct(valueSelect) {
         })
 }
 getListProduct();
-
+//Xóa giỏ hàng
+function clearCart(){
+    var valueSelect = domId("type-select").value;
+    cardProductList = [];
+    domId("spanCountShoping").innerHTML = cardProductList.length;
+    domId("btnClearCart").style.display = "none";
+    saveLocalStorage();
+    getListProduct(valueSelect);
+}
 //Hiển thị danh sách sản phẩm ra giao diện
 function renderProduct(data, valueSelect) {
     result = "";
